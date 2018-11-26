@@ -65,6 +65,11 @@ if($handle = opendir(FILES_DIRECTORY)) {
                         $table_name = readline("Enter the seeder table name: ");
 
                     $script = init_seeder_script($class_name, $laravel_version);
+
+                    foreach($parsed_data as $seeder_row) {
+                        $script .= create_seeder_entry($seeder_row, $table_name, $connection_name, $laravel_version);
+                    }
+
                     $script .= close_seeder_script($laravel_version);
 
                     file_put_contents(OUTPUT_DIRECTORY.$class_name.".php", $script);
