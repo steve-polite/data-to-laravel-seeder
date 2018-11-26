@@ -60,6 +60,24 @@ function init_seeder_script($class_name, $laravel_version = "5.7")
     $init_script = "";
     switch($laravel_version) {
 
+        case "5.4":
+        case "5.3":
+        case "5.2":
+        case "5.1":
+            $init_script .= "<?php".PHP_EOL.PHP_EOL.PHP_EOL;
+            $init_script .= "use Illuminate\Database\Seeder;".PHP_EOL;
+            $init_script .= "use Illuminate\Database\Eloquent\Model;".PHP_EOL.PHP_EOL.PHP_EOL;
+            $init_script .= "class {$class_name} extends Seeder".PHP_EOL;
+            $init_script .= "{".PHP_EOL;
+            $init_script .= TAB1."/**".PHP_EOL;
+            $init_script .= TAB1." * Run the database seeds.".PHP_EOL;
+            $init_script .= TAB1." *".PHP_EOL;
+            $init_script .= TAB1." * @return void".PHP_EOL;
+            $init_script .= TAB1." */".PHP_EOL;
+            $init_script .= TAB1."public function run()".PHP_EOL;
+            $init_script .= TAB1."{".PHP_EOL;
+            break;
+
         default:
             $init_script .= "<?php".PHP_EOL.PHP_EOL.PHP_EOL;
             $init_script .= "use Illuminate\Database\Seeder;".PHP_EOL;
