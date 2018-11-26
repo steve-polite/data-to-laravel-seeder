@@ -16,7 +16,7 @@ $laravel_version = trim($laravel_version) === "" ? DEFAULT_LARAVEL_VERSION : $la
 if($handle = opendir(FILES_DIRECTORY)) {
     while(($entry = readdir($handle)) !== false) {
         $parsed_data = null;
-        if($entry != "." && $entry != "..") {
+        if($entry != "." && $entry != ".." && $entry != ".DS_Store") {
 
             // Check file extension and parse data
             $file_extension = pathinfo($entry, PATHINFO_EXTENSION);
@@ -63,6 +63,13 @@ if($handle = opendir(FILES_DIRECTORY)) {
 
                     while(trim($table_name) == "")
                         $table_name = readline("Enter the seeder table name: ");
+
+                    $script = init_seeder_script($class_name, $laravel_version);
+                    $script .= close_seeder_script($laravel_version);
+
+                    file_put_contents(OUTPUT_DIRECTORY.$class_name.".php", $script);
+
+                    echo OUTPUT_DIRECTORY.$class_name.".php file created".PHP_EOL;
 
                 }
 
