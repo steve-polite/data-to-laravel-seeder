@@ -23,7 +23,7 @@ Input file:
 ```
 id,name,parent_id,created_at,updated_at
 1,lello,1,2018-10-02 10:15:02,2018-10-02 10:15:02
-1,fresh,1,2018-10-03 08:11:45,2018-10-03 08:11:45
+2,fresh,1,2018-10-03 08:11:45,2018-10-03 08:11:45
 ```
 
 Output file:
@@ -46,15 +46,15 @@ class LelloFreshSeeder extends Seeder
 	{
 		DB::table('lello_fresh')->insert([
 			'id' => '1',
-			'name' => 'stefano',
+			'name' => 'lello',
 			'parent_id' => '1',
 			'created_at' => '2018-10-02 10:15:02',
 			'updated_at' => '2018-10-02 10:15:02',
 		]);
 
 		DB::table('lello_fresh')->insert([
-			'id' => '1',
-			'name' => 'marco',
+			'id' => '2',
+			'name' => 'fresh',
 			'parent_id' => '1',
 			'created_at' => '2018-10-03 08:11:45',
 			'updated_at' => '2018-10-03 08:11:45',
