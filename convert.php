@@ -49,7 +49,7 @@ if($handle = opendir(FILES_DIRECTORY)) {
                 // Start to create seeder
                 if($parsed_data !== null) {
 
-                    echo PHP_EOL."Create seeder for the file ".$entry.PHP_EOL."Please, enter seeder information:".PHP_EOL;
+                    echo PHP_EOL."Create seeder for the file ".$entry.PHP_EOL;
                     // Get seeder info
                     $class_name = "";
                     $connection_name = "";
